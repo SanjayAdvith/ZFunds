@@ -1,0 +1,35 @@
+
+The products.json file is available for you. 
+
+UI:- The UI can be bare-bones or look like your favorite e-commerce app.
+
+for USER
+1. You have to use a stateful function or a class to create a product grid that shows the products.
+2. Every product is a card card which contains:-
+	a. caraousal for images(images array)
+	b. name of the product	
+	c. price of the product
+3. On bigger screens, this grid should show three product in a row and on smaller ones, two products in a row. 
+(Numbers could be different, goal is responsiveness)
+4. Authentication screen (login and signup)
+
+for Admin
+1. UI for admin to add and edit and delete products.
+   Min input fields 
+      - Name of the product
+      - Price
+      - Is_in_stock
+      -	Min One image		
+2. Authentication screen (login)
+
+Frontend Functionality:-
+1. Create a toggle (a checkbox or a button) that hides or shows out of stock products.Out of stock products have “is_in_stock” value 0. 
+2. Create a text field to search product based on title and only render the products that match the input.
+
+Backend:-
+1. Authentication Flow (Two type of users: Admin(only login) and User(signup and login))
+2. Add, Edit and delete products APIs (only admin can access these routes)
+3. get product APIs
+4. Use NoSQL DB or any preferred DB(insert data from file to DB).
+
+
