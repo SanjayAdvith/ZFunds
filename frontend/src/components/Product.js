@@ -2,19 +2,12 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 const Product = ({ product }) => {
-    const dir = {
-        name: 'sanjay',
-        age: 12
-    }
-
-    console.log(`hello` + dir.name)
 
     return (
         <Card className='my-3 p-3 rounded'>
-            <Link to={`product/${product.id}`}>
+            <Link to={`product/${product._id}`}>
                 <Card.Img src={product.images} variant='top' />
             </Link>
-
 
             <Card.Body>
                 <Link to={`/product/${product._id}`}>
@@ -25,8 +18,7 @@ const Product = ({ product }) => {
 
                 <Card.Text as='div'>
                     <div>
-                        { }
-                        {product.images}
+                        {product.slug}
                     </div>
                 </Card.Text>
 

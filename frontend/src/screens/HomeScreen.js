@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'react-bootstrap'
 //import products from '../products.json'
 import Product from '../components/Product'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+
 import ProductCarousel from '../components/ProductCarousel'
 import {
     listProducts
@@ -14,7 +17,7 @@ const HomeScreen = () => {
 
 
     const productList = useSelector(state => state.productList)
-    const { loading, error, products } = productList   // come from reducers 
+    const { loading, error, products } = productList   // comes from reducers 
     useEffect(() => {
         dispatch(listProducts())
 
@@ -23,9 +26,9 @@ const HomeScreen = () => {
 
     return (
         <>
-            <ProductCarousel />
+            <ProductCarousel products={products} />
             <h1>Latest products</h1>
-            {loading ? <h1>loading</h1> : error ? <h2>error</h2> : (
+            {loading ? <Loader /> : error ? <Message cariant="danger">{error}</Message> : (
 
                 <Row>
                     {products.map(product => (
