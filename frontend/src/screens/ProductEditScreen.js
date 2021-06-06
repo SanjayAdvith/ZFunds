@@ -14,7 +14,7 @@ const ProductEditScreen = ({ match, history }) => {
 
   const [name, setName] = useState('')
   const [price, setPrice] = useState(0)
-  const [image, setImage] = useState('')
+  const [images, setImages] = useState('')
   const [brand, setBrand] = useState('')
   const [category, setCategory] = useState('')
   const [is_in_stock, setIs_in_stock] = useState(0)
@@ -43,7 +43,7 @@ const ProductEditScreen = ({ match, history }) => {
       } else {
         setName(product.name)
         setPrice(product.price)
-        setImage(product.image)
+        setImages(product.images)
         setBrand(product.brand)
         setCategory(product.category)
         setIs_in_stock(product.is_in_stock)
@@ -55,7 +55,7 @@ const ProductEditScreen = ({ match, history }) => {
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0]
     const formData = new FormData()
-    formData.append('image', file)
+    formData.append('images', file)
     setUploading(true)
 
     try {
@@ -67,7 +67,7 @@ const ProductEditScreen = ({ match, history }) => {
 
       const { data } = await axios.post('/api/upload', formData, config)
 
-      setImage(data)
+      setImages(data)
       setUploading(false)
     } catch (error) {
       console.error(error)
@@ -82,7 +82,7 @@ const ProductEditScreen = ({ match, history }) => {
         _id: productId,
         name,
         price,
-        image,
+        images,
         brand,
         category,
         description,
@@ -126,16 +126,16 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='image'>
+            <Form.Group controlId='images'>
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Enter image url'
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
+                value={images}
+                onChange={(e) => setImages(e.target.value)}
               ></Form.Control>
               <Form.File
-                id='image-file'
+                id='images-file'
                 label='Choose File'
                 custom
                 onChange={uploadFileHandler}
