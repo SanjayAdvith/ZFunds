@@ -6,7 +6,7 @@ import {
     productDetailsReducer,
 
 } from './reducers/pruductReducers'
-import { userLoginReducer, userRegisterReducer } from './reducers/userReducers'
+import { userLoginReducer, userRegisterReducer, userListReducer } from './reducers/userReducers'
 
 const reducer = combineReducers({
     productList: productListReducer,
@@ -14,6 +14,7 @@ const reducer = combineReducers({
 
     userLogin: userLoginReducer,
     userRegister: userRegisterReducer,
+    userList: userListReducer,
 })
 
 

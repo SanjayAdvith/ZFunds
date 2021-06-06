@@ -6,7 +6,7 @@ import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import { listProductDetails } from '../actions/pruductActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-const ProductScreen = ({ match }) => {
+const ProductScreen = ({ match, history }) => {
     const dispatch = useDispatch()
 
     //const product = products.find((p) => p.id === match.params.id)
@@ -14,9 +14,18 @@ const ProductScreen = ({ match }) => {
     const productDetails = useSelector(state => state.productDetails)
     const { loading, error, product } = productDetails
 
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
+
     useEffect(() => {
+        if (!userInfo) {
+
+            history.push('/login')
+        }
+
         dispatch(listProductDetails(match.params.id))
-    }, [dispatch, match])
+    }, [dispatch, match, userInfo, history])
 
 
     return (

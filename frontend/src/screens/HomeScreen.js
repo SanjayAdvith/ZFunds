@@ -12,17 +12,28 @@ import {
 } from '../actions/pruductActions'
 //import axios from 'axios'
 
-const HomeScreen = () => {
+const HomeScreen = ({ location, history }) => {
     const dispatch = useDispatch()
 
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const {  userInfo } = userLogin
+
+    const redirect = location.search ? location.search.split('=')[1] : '/'
 
     const productList = useSelector(state => state.productList)
     const { loading, error, products } = productList   // comes from reducers 
     useEffect(() => {
+        if (userInfo) {
+            history.push(redirect)
+        } else {
+            history.push('/login')
+        }
+
         dispatch(listProducts())
 
 
-    }, [dispatch])
+    }, [dispatch, userInfo, history, redirect])
 
     return (
         <>
