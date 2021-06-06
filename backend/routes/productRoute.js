@@ -1,14 +1,26 @@
 import express from 'express'
-import asyncHandler from 'express-async-handler'
-import Product from '../models/productModel.js'
-import { getProduct, getProductById } from '../controllers/productController.js'
+import {
+    getProduct,
+    getProductById,
+    deleteProduct,
+    createProduct,
+    updateProduct
+} from '../controllers/productController.js'
+
+import { protect, admin } from '../middleware/authMiddleware.js'
+
 const router = express.Router()
 
 
-router.get('/', getProduct)
+
+router.route('/').get(getProduct).post(protect, admin, createProduct)
+
+router.route('/:id').get(getProductById).delete(protect, admin, deleteProduct).put(protect, admin, updateProduct)
 
 
 
-router.get('/:id', getProductById)
+
+
+
 
 export default router

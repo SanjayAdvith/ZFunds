@@ -9,7 +9,7 @@ import Loader from '../components/Loader'
 import ProductCarousel from '../components/ProductCarousel'
 import {
     listProducts
-} from '../actions/pruductActions'
+} from '../actions/productActions'
 //import axios from 'axios'
 
 const HomeScreen = ({ location, history }) => {

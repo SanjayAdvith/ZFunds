@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 //import products from '../products.json'
-import { listProductDetails } from '../actions/pruductActions'
+import { listProductDetails } from '../actions/productActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 const ProductScreen = ({ match, history }) => {
@@ -20,13 +20,11 @@ const ProductScreen = ({ match, history }) => {
 
     useEffect(() => {
         if (!userInfo) {
-
             history.push('/login')
         }
 
         dispatch(listProductDetails(match.params.id))
     }, [dispatch, match, userInfo, history])
-
 
     return (
         <>
