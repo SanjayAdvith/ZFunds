@@ -23,6 +23,7 @@ function App() {
           <Route path="/admin/userlist" component={UserListScreen} />
           <Route path="/admin/productlist" component={ProductListScreen} />
           <Route path='/admin/product/:id/edit' component={ProductEditScreen} />
+          <Route path="/search/:keyword" component={HomeScreen} />
           <Route exact path="/" component={HomeScreen} />
         </Container>
       </main>

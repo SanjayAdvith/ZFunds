@@ -12,28 +12,29 @@ import {
 } from '../actions/productActions'
 //import axios from 'axios'
 
-const HomeScreen = ({ location, history }) => {
+const HomeScreen = ({ location, history, match }) => {
+    const keyword = match.params.keyword
     const dispatch = useDispatch()
 
 
     const userLogin = useSelector((state) => state.userLogin)
-    const {  userInfo } = userLogin
+    const { userInfo } = userLogin
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
     const productList = useSelector(state => state.productList)
     const { loading, error, products } = productList   // comes from reducers 
     useEffect(() => {
-        if (userInfo) {
-            history.push(redirect)
-        } else {
-            history.push('/login')
-        }
+        // if (userInfo) {
+        //     history.push(redirect)
+        // } else {
+        //     history.push('/login')
+        // }
 
-        dispatch(listProducts())
+        dispatch(listProducts(keyword))
 
 
-    }, [dispatch, userInfo, history, redirect])
+    }, [dispatch, userInfo, history, redirect, keyword])
 
     return (
         <>
