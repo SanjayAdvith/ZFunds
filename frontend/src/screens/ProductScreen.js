@@ -44,7 +44,7 @@ const ProductScreen = ({ match, history }) => {
                                     <h3>{product.name}</h3>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                    <h5>{product.slug}</h5>
+                                    <h5>{product.title}</h5>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <h2 className="price_color">${product.price}</h2>

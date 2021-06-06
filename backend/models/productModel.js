@@ -26,7 +26,7 @@ const productSchema = mongoose.Schema({
         type: Number,
         require: true
     },
-    slug: {
+    title: {
         type: String,
         require: true
     },

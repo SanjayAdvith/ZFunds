@@ -37,7 +37,7 @@ export const createProduct = asyncHandler(async (req, res) => {
         brand: 'Sample brand',
         category: 'Sample category',
         is_in_stock: 0,
-        slug: 'Sample description',
+        title: 'Sample description',
     })
 
     const createdProduct = await product.save()
@@ -51,10 +51,9 @@ export const updateProduct = asyncHandler(async (req, res) => {
     const {
         name,
         price,
-        description,
         images,
         brand,
-        slug,
+        title,
         category,
         is_in_stock,
     } = req.body
@@ -64,10 +63,9 @@ export const updateProduct = asyncHandler(async (req, res) => {
     if (product) {
         product.name = name
         product.price = price
-        product.description = description
         product.images = images
         product.brand = brand
-        product.slug = slug
+        product.title = title
         product.category = category
         product.is_in_stock = is_in_stock
 

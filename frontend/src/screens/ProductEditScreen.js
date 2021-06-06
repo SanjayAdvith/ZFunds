@@ -18,7 +18,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [brand, setBrand] = useState('')
   const [category, setCategory] = useState('')
   const [is_in_stock, setIs_in_stock] = useState(0)
-  const [description, setDescription] = useState('')
+  const [title, setTitle] = useState('')
   const [uploading, setUploading] = useState(false)
 
   const dispatch = useDispatch()
@@ -47,7 +47,7 @@ const ProductEditScreen = ({ match, history }) => {
         setBrand(product.brand)
         setCategory(product.category)
         setIs_in_stock(product.is_in_stock)
-        setDescription(product.description)
+        setTitle(product.title)
       }
     }
   }, [dispatch, history, productId, product, successUpdate])
@@ -85,7 +85,7 @@ const ProductEditScreen = ({ match, history }) => {
         images,
         brand,
         category,
-        description,
+        title,
         is_in_stock,
       })
     )
@@ -173,13 +173,13 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId='description'>
-              <Form.Label>Description</Form.Label>
+            <Form.Group controlId='title'>
+              <Form.Label>Title</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter description'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                placeholder='Enter Title'
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
